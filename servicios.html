@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/translator.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="nav.css">
+    <script src="./js/carrito.js"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
+    
+    <div id="mobile-menu" class="fixed top-0 right-0 w-64 h-full bg-gray-900 text-white transform translate-x-full transition-transform duration-300 z-50 md:hidden">
+
+        <button id="close-btn" class="text-2xl mb-4 p-2">✕</button>
+
+        <div class="flex flex-col h-full overflow-y-auto p-4 space-y-6">
+
+            <nav class="flex flex-col space-y-4">
+                <a href="productos.html" class="hover:text-blue-400">Productos</a>
+                <a href="servicios.html" class="hover:text-blue-400">Servicios</a>
+                <a href="contacto.html" class="hover:text-blue-400">Contact us</a>
+                <a href="workwithus.html" class="hover:text-blue-400">Work with us</a>
+                <a href="registro.html" class="hover:text-blue-400">Registro</a>
+            </nav>
+        </div>
+    </div>
+
+    <a href="Index.html" class="text-2xl font-bold">Awake</a>
+
+    <div class="hidden md:flex space-x-6">
+        <a data-translate="navbar_products" href="productos.html" class="hover:text-blue-400">Productos</a>
+        <a data-translate="navbar_servicio" href="servicios.html" class="hover:text-blue-400">Servicios</a>
+        <a data-translate="navbar_contact" href="contacto.html" class="hover:text-blue-400">Contact us</a>
+        <a data-translate="navbar_work" href="workwithus.html" class="hover:text-blue-400">Work with us</a>
+        <a data-translate="navbar_registro" href="registro.html" class="hover:text-blue-400">Registro</a>
+    </div>
+
+    <div class="relative inline-block">
+
+        <button id="language-btn" class="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded hover:bg-gray-700 focus:outline-none">
+            <img id="current-flag" src="/assets/bandera españa.png" class="w-6 h-6">
+            <span id="current-lang" class="text-white text-sm">ES</span>
+            <svg class="w-4 h-4 text-white ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </button>
+
+        <div id="language-menu" class="hidden absolute right-0 mt-2 w-28 bg-gray-800 rounded shadow-lg overflow-hidden z-50">
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('es','/assets/bandera españa.png')">
+                <img src="/assets/bandera españa.png" class="w-6 h-6 mr-2"> Español
+            </button>
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('en','/assets/bandera inglaterra.jpg')">
+                <img src="/assets/bandera inglaterra.jpg" class="w-6 h-6 mr-2"> English
+            </button>
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('ch','/assets/bandera china.png')">
+                <img src="/assets/bandera china.png" class="w-6 h-6 mr-2"> 中文
+            </button>
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('fr','/assets/bandera francia.png')">
+                <img src="/assets/bandera francia.png" class="w-6 h-6 mr-2"> Français
+            </button>
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('pt','/assets/bandera portugal.png')">
+                <img src="/assets/bandera portugal.png" class="w-6 h-6 mr-2"> Português
+            </button>
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('it','/assets/bandera italia.png')">
+                <img src="/assets/bandera italia.png" class="w-6 h-6 mr-2"> Italiano
+            </button>
+            <button class="flex items-center px-4 py-2 hover:bg-gray-700 w-full" onclick="changeLanguage('ca','/assets/bandera catalunya.png')">
+                <img src="/assets/bandera catalunya.png" class="w-6 h-6 mr-2"> Català
+            </button>
+        </div>
+
+    </div>
+
+    <a href="carrito.html" class="relative">
+        🛒
+        <span
+            id="cart-count"
+            class="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full hidden">
+            0
+        </span>
+    </a>
+
+    <div class="flex space-x-5">
+        <a href="https://www.instagram.com/" target="_blank">
+            <img src="./assets/Instagram_logo.webp" class="w-7 h-7 cursor-pointer hover:opacity-70 transition" alt="instagram">
+        </a>
+        <a href="https://www.whatsapp.com/?lang=es" target="_blank">
+            <img src="./assets/WhatsApp_logo.webp" class="w-7 h-7 cursor-pointer hover:opacity-70 transition" alt="whatsapp">
+        </a>
+    </div>
+
+    <div>
+        <a href="login.html" class="ml-4 hover:text-blue-400" data-translate="login">Login</a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden text-white text-3xl focus:outline-none">
+    ☰
+    </button>
+
+</nav>
+
+<script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeBtn = document.getElementById("close-btn");
+
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-full");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+    });
+
+    const langBtn = document.getElementById("language-btn");
+    const langMenu = document.getElementById("language-menu");
+    const currentFlag = document.getElementById("current-flag");
+    const currentLang = document.getElementById("current-lang");
+
+    langBtn.addEventListener("click", () => {
+        langMenu.classList.toggle("hidden");
+    });
+
+    function changeLanguage(lang, flagSrc) {
+        currentFlag.src = flagSrc;
+        currentLang.textContent = lang.toUpperCase();
+
+        if(typeof setLanguage === "function"){
+            setLanguage(lang);
+        }
+
+        langMenu.classList.add("hidden");
+    }
+
+    document.addEventListener("click", function(event) {
+        if (!langBtn.contains(event.target) && !langMenu.contains(event.target)) {
+            langMenu.classList.add("hidden");
+        }
+    });
+</script>
+
+<section class="p-10 text-center">
+    <h1 class="text-4xl font-bold" data-translate="services">Servicios</h1>
+    <p class="mt-3 text-lg" data-translate="">
+        Ofrecemos los mejores productos para ti.
+    </p>
+</section>
+
+</body>
+</html>
